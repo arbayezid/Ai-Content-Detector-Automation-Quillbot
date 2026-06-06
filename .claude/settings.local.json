@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(findstr:*)",
+      "Bash(powershell -Command \"(Get-Content ''d:\\output\\Ai Content Detection Extension-20251216T061326Z-3-001\\Ai Content Detection Extension\\content-scripts\\content.js'' -Raw) -match ''statsPercentage:\\[([^\\]]+)\\]'' | Out-Null; $matches[0]\")",
+      "Bash(powershell -Command \"$content = Get-Content ''d:\\output\\Ai Content Detection Extension-20251216T061326Z-3-001\\Ai Content Detection Extension\\content-scripts\\content.js'' -Raw; $idx = $content.IndexOf(''statsPercentage''); $content.Substring($idx, 100)\")",
+      "Bash(cmd.exe /c \"powershell -Command \"\"(Get-Content ''d:\\output\\Ai Content Detection Extension-20251216T061326Z-3-001\\Ai Content Detection Extension\\content-scripts\\content.js'' -Raw).Substring(0, 30000)\"\"\")",
+      "Bash(curl:*)",
+      "Bash(dir:*)",
+      "Bash(cmd.exe /c \"dir /s /b \"\"c:\\Users\\seo1i\\Downloads\\Ai Content Detection Extension\"\"\")",
+      "Bash(cat:*)"
+    ]
+  }
+}

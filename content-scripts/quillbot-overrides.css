@@ -1,0 +1,17 @@
+/* Hide QuillBot's in-page snackbar error popups (notistack). */
+.notistack-SnackbarContainer,
+[class*="notistack-SnackbarContainer"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* When QuillBot is opened by this extension, hide QuillBot's upsell/panels. */
+.aidr-ext-tab [data-testid="humanizer-chrome-extension-upsell-aidr"],
+.aidr-ext-tab [data-testid="pphr-view-side-drawer-box"],
+.aidr-ext-tab [data-testid="PageQAIDetectorBTF"],
+.aidr-ext-tab #qb-footer {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

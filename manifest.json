@@ -1,0 +1,50 @@
+{
+    "manifest_version": 3,
+    "name": "Quillbot Ai Detection Checker",
+    "description": "Quillbot Ai Detection Checker",
+    "version": "1.0.0",
+    "icons": {
+        "16": "icon/16.png",
+        "32": "icon/32.png",
+        "48": "icon/48.png",
+        "96": "icon/96.png",
+        "128": "icon/128.png"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "tabs",
+        "alarms"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "data.xlsx"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_title": "AI Content Detector",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://quillbot.com/ai-content-detector*"
+            ],
+            "css": [
+                "content-scripts/content.css",
+                "content-scripts/quillbot-overrides.css"
+            ],
+            "js": [
+                "content-scripts/content.js"
+            ]
+        }
+    ]
+}
