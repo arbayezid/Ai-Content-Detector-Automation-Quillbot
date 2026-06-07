@@ -27,6 +27,32 @@ document.addEventListener('DOMContentLoaded', async () => {
   let uploadedFileName = '';
   let uploadedArrayBuffer = null; // kept for re-saving when selections change
 
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIconMoon = document.getElementById('theme-icon-moon');
+  const themeIconSun = document.getElementById('theme-icon-sun');
+
+  // Load and apply theme
+  let currentTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  updateThemeIcon(currentTheme);
+
+  themeToggle.addEventListener('click', () => {
+    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('theme', currentTheme);
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
+  });
+
+  function updateThemeIcon(theme) {
+    if (theme === 'dark') {
+      themeIconMoon.style.display = 'none';
+      themeIconSun.style.display = 'block';
+    } else {
+      themeIconMoon.style.display = 'block';
+      themeIconSun.style.display = 'none';
+    }
+  }
+
   // Load saved JSON parse setting
   const savedJsonParseSetting = localStorage.getItem('jsonParseEnabled');
   jsonParseToggle.checked = savedJsonParseSetting === 'true';
